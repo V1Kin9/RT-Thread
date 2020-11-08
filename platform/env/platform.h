@@ -8,6 +8,7 @@
  * Change Logs:
  * Date           Author       Notes
  * 2018-12-20	  ViKing       first implementation
+ * 2020-11-3	  ViKing       add the 32-bit _REG32 for GPIO control register
  */
 
 #ifndef _RISCV_PLATFORM_H
@@ -22,7 +23,7 @@
 
 #include "const.h"
 
-//#include "/gpio.h"
+#include "gpio.h"
 #include "uart.h"
 
 /****************************************************************************
@@ -47,7 +48,8 @@
 #define _REG32(p, i) (*(volatile uint32_t *) ((p) + (i)))
 #define _REG32P(p, i) ((volatile uint32_t *) ((p) + (i)))
 #define CLINT_REG(offset) _REG32(CLINT_CTRL_ADDR, offset)
-#define GPIO_REG(offset) _REG32(GPIO_CTRL_ADDR, offset)
+#define GPIO_DATA_REG(offset) _REG8(GPIO_CTRL_ADDR, offset)
+#define GPIO_CTRL_REG(offset) _REG32(GPIO_CTRL_ADDR,offset)
 #define PLIC_REG(offset) _REG32(PLIC_CTRL_ADDR, offset)
 #define UART0_REG(offset) _REG8(UART0_CTRL_ADDR, offset)
 
