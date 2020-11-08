@@ -5,7 +5,8 @@ Import('RTT_ROOT')
 from building import *
 
 cwd = GetCurrentDir()
-src = ['drivers/uart.c']
+src = ['drivers/uart.c',
+       'drivers/gpio.c']
 
 CPPPATH = [ cwd + '/drivers', cwd + '/env', cwd + '/include',
             cwd + '/include/devices']
